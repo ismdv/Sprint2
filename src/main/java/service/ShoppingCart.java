@@ -9,15 +9,7 @@ public class ShoppingCart {
         this.food = food;
     }
 
-    public Food[] getFood() {
-        return food;
-    }
-
-    public void setFood(Food[] food) {
-        this.food = food;
-    }
-
-    public double getSumm() {
+    public double getSum() {
         double sum = 0;
         for (Food food1 : food) {
             sum += food1.getAmount() * food1.getPrice();
@@ -25,7 +17,7 @@ public class ShoppingCart {
         return sum;
     }
 
-    public double getSummWithDicount() {
+    public double getSumWithDiscount() {
         double sum = 0;
         for (Food food1 : food) {
             sum += food1.getAmount() * food1.getPrice() * (1-food1.getDiscount() / 100);
@@ -33,10 +25,10 @@ public class ShoppingCart {
         return sum;
     }
 
-    public double getSummVeganWithDicount() {
+    public double getSumVeganWithoutDiscount() {
         double sum = 0;
         for (Food food1 : food) {
-            if (food1.isVegetarian() && food1.getDiscount() == 0) {
+            if (food1.isVegetarian()) {
                 sum += food1.getAmount() * food1.getPrice() ;
             }
         }
